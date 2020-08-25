@@ -1,3 +1,7 @@
+## node sass
+
+yarn add node-sass sass로 코드를 변경해주는 라이브러리
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
