@@ -1,13 +1,24 @@
 import React from "react";
 import ClassNames from "classnames";
 import "./Button.scss";
-
-// large, medium, small
-function Button({ children, size }) {
-  return <button className={classNames("Button", size)}>{children}</button>;
+//https://yeun.github.io/open-color/ 컬러사이트
+// size : large, medium, small
+// color : blue, pick, gray
+function Button({ children, size, color, outline, fullWidth }) {
+  return (
+    <button
+      className={ClassNames("Button", size, color, {
+        outline,
+        fullWidth,
+      })}
+    >
+      {children}
+    </button>
+  );
 }
 Button.defaultProps = {
   size: "Medium",
+  color: "blue",
 };
 
 //Button medium
