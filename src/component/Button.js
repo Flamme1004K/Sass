@@ -4,13 +4,28 @@ import "./Button.scss";
 //https://yeun.github.io/open-color/ 컬러사이트
 // size : large, medium, small
 // color : blue, pick, gray
-function Button({ children, size, color, outline, fullWidth }) {
+function Button({
+  children,
+  size,
+  color,
+  outline,
+  fullWidth,
+  className,
+  ...rest
+}) {
   return (
     <button
-      className={ClassNames("Button", size, color, {
-        outline,
-        fullWidth,
-      })}
+      className={ClassNames(
+        "Button",
+        size,
+        color,
+        {
+          outline,
+          fullWidth,
+        },
+        className
+      )}
+      {...rest}
     >
       {children}
     </button>
