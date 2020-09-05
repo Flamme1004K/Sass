@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import Button from "./components/Button";
 //vscode-styled-components Extension : styled componets 자동완성
 
@@ -11,11 +11,21 @@ const AppBlock = styled.div`
   padding: 1rem;
 `;
 
+const palette = {
+  blue: "#228be6",
+  grey: "#496057",
+  pink: "#f06595",
+};
+
 function App() {
   return (
-    <AppBlock>
-      <Button>BUTTON</Button>
-    </AppBlock>
+    <ThemeProvider theme={{ palette }}>
+      <AppBlock>
+        <Button>BUTTON</Button>
+        <Button color="grey">BUTTON</Button>
+        <Button color="pink">BUTTON</Button>
+      </AppBlock>
+    </ThemeProvider>
   );
 }
 
