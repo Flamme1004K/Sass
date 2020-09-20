@@ -74,6 +74,7 @@ const StyledButton = styled.button`
   color: white;
   font-weight: bolder;
   cursor: pointer;
+  display: table-cell;
   padding-left: 1rem;
   padding-right: 1rem;
 

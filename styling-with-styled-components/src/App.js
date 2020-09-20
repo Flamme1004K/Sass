@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import Button from "./components/Button";
+import Dialog from "./components/Dialog";
 //vscode-styled-components Extension : styled componets 자동완성
 
 const AppBlock = styled.div`
@@ -24,39 +25,38 @@ const palette = {
 };
 
 function App() {
+  const [dialog, setDialog] = useState(false);
+  const onClick = () => {
+    setDialog(true);
+  };
+
+  const onConfirm = () => {
+    setDialog(false);
+  };
+
+  const onCancle = () => {
+    setDialog(false);
+  };
+
   return (
     <ThemeProvider theme={{ palette }}>
-      <AppBlock>
-        <ButtonGroup>
-          <Button size="large">BUTTON</Button>
-          <Button color="grey">BUTTON</Button>
-          <Button size="small" color="pink">
-            BUTTON
+      <>
+        <AppBlock>
+          <Button color="pink" size="large" onClick={onClick}>
+            삭제
           </Button>
-        </ButtonGroup>
-        <ButtonGroup>
-          <Button size="large" outline>
-            BUTTON
-          </Button>
-          <Button color="grey" outline>
-            BUTTON
-          </Button>
-          <Button size="small" color="pink" outline>
-            BUTTON
-          </Button>
-        </ButtonGroup>
-        <ButtonGroup>
-          <Button size="large" fullWidth>
-            BUTTON
-          </Button>
-          <Button size="large" color="grey" fullWidth>
-            BUTTON
-          </Button>
-          <Button size="large" color="pink" fullWidth>
-            BUTTON
-          </Button>
-        </ButtonGroup>
-      </AppBlock>
+        </AppBlock>
+        <Dialog
+          title="정말로 삭제하시겠습니까?"
+          confirmText="삭제"
+          cancelText="취소"
+          onConfirm={onConfirm}
+          onCancle={onCancle}
+          visible={dialog}
+        >
+          데이터를 정말로 삭제하시겠습니까?
+        </Dialog>
+      </>
     </ThemeProvider>
   );
 }
